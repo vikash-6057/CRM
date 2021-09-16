@@ -1,0 +1,50 @@
+{% extends "accounts/main.html" %}
+    {% block title %}
+      <title>Dashboard</title>
+    {% endblock title %}
+ 
+{% block content %}
+<div class="row">
+    <!-- Customer Col -->
+    <div class="col-md-5">
+      <h5> Customers </h5>
+      <hr>
+      <a class="btn btn-primary btn-sm btn-block" href="">Create Customers</a>
+
+        <div class="card card-body">
+
+            <table class="table table-info table-striped table-hover">
+               <thead>
+                    <tr>
+                    <th scope="col">Customer</th>
+                    <th scope="col">Orders</th>
+                    </tr>
+               </thead>
+            </table>
+        </div>
+    </div>
+    <!-- Customers Col End -->
+
+    <!-- Product Col -->
+    <div class="col-md-7">
+        <h5> Products </h5>
+        <hr>
+        <a class="btn btn-primary btn-sm btn-block" href="">Create Product</a>
+        <div class="card card-body">
+
+            <table class="table table-info table-striped table-hover">
+                <thead>
+                    <tr>
+                    <th>Product</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Update</th>
+                    <th scope="col">Remove</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <!-- Product Col End-->
+</div>
+{% endblock content %}
