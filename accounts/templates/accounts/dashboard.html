@@ -12,14 +12,21 @@
       <hr>
       
         <div class="card card-body">
-            <a class="btn btn-primary btn-sm btn-block" href="">Create Customers</a>
+            <a class="btn btn-primary btn-sm btn-block" href="{% url 'createCustomer' %}">Create Customer</a>
             <table class="table table-info table-striped table-hover">
                <thead>
                     <tr>
                     <th></th>
                     <th scope="col">Customer</th>
-                    <th scope="col">Orders</th>
+                    <th scope="col">Phone</th>
                     </tr>
+                    {% for customer in customers %}
+                      <tr>
+                          <td><a class="btn btn-sm btn-outline-danger" href="{% url 'customer' customer.pk %}"> View </a></td>
+                          <td>{{ customer.name }}</td>
+                          <td>{{ customer.phone }}</td>
+                      </tr>
+                    {% endfor %}
                </thead>
             </table>
         </div>
@@ -32,17 +39,26 @@
         <hr>
         
         <div class="card card-body">
-            <a class="btn btn-primary btn-sm btn-block" href="">Create Product</a>
+            <a class="btn btn-primary btn-sm btn-block" href="{% url 'createProduct' %}">Create Product</a>
             <table class="table table-info table-striped table-hover">
                 <thead>
                     <tr>
-                        <th></th>
-                    <th>Product</th>
+                    <th scope="col">Product</th>
                     <th scope="col">Date</th>
                     <th scope="col">Status</th>
                     <th scope="col">Update</th>
                     <th scope="col">Remove</th>
                     </tr>
+
+                    {% for order in orders %}
+                      <tr>
+                          <td>{{ order.product }}</td>
+                          <td>{{ order.date_created }}</td>
+                          <td>{{ order.status }}</td>
+                          <td><a class="btn btn-sm btn-outline-info" href="{% url 'updateOrder' order.pk  %}">Update</a></td>
+                          <td><a class="btn btn-sm btn-outline-danger" href="{% url 'removeOrder' order.pk %}">Remove</a></td>
+                      </tr>
+                    {% endfor %}
                 </thead>
             </table>
         </div>

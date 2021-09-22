@@ -1,0 +1,21 @@
+{% extends "accounts/main.html" %}
+
+ {% block title %}
+<title>Remove Order</title>
+{% endblock title %} 
+
+{% block content %}
+
+<form class="form-group" action="" method="POST">
+  {% csrf_token %} 
+  Do you really want to delete {{order.product}}?
+  <br>
+  <br>
+  
+  <a class="btn btn-sm btn-outline-info" href="{% url 'home' %}">Cancel</a>
+
+  <input class="btn btn-sm btn-outline-danger" type="submit" value="Delete" />
+
+</form>
+
+{% endblock content %}
